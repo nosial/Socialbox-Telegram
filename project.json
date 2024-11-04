@@ -1,0 +1,92 @@
+{
+    "project": {
+        "compiler": {
+            "extension": "php",
+            "minimum_version": "8.0",
+            "maximum_version": "8.2"
+        },
+        "options": {
+            "create_symlink": true
+        }
+    },
+    "assembly": {
+        "name": "SocialboxTelegram",
+        "package": "net.nosial.socialbox_telegram",
+        "version": "1.0.0",
+        "uuid": "11a18b48-111d-4414-8c28-4bffacd36a1d"
+    },
+    "build": {
+        "source_path": "src",
+        "default_configuration": "release",
+        "main": "main_policy",
+        "define_constants": {
+            "ASSEMBLY_PACKAGE": "%ASSEMBLY.PACKAGE%",
+            "ASSEMBLY_VERSION": "%ASSEMBLY.VERSION%",
+            "ASSEMBLY_UID": "%ASSEMBLY.UID%"
+        },
+        "configurations": [
+            {
+                "name": "release",
+                "build_type": "ncc",
+                "output": "build/release/%ASSEMBLY.PACKAGE%.ncc"
+            },
+            {
+                "name": "debug",
+                "build_type": "ncc",
+                "output": "build/debug/%ASSEMBLY.PACKAGE%.ncc",
+                "define_constants": {
+                    "DEBUG": "1"
+                }
+            },
+            {
+                "name": "release_executable",
+                "build_type": "executable",
+                "output": "build/release/%ASSEMBLY.NAME%",
+                "options": {
+                    "ncc_configuration": "release"
+                }
+            },
+            {
+                "name": "debug_executable",
+                "build_type": "executable",
+                "output": "build/debug/%ASSEMBLY.NAME%",
+                "options": {
+                    "ncc_configuration": "debug"
+                },
+                "define_constants": {
+                    "DEBUG": "1"
+                }
+            },
+            {
+                "name": "release-executable",
+                "build_type": "executable",
+                "output": "build/release/release_executable_gz",
+                "options": {
+                    "ncc_configuration": "release"
+                }
+            },
+            {
+                "name": "debug-executable",
+                "build_type": "executable",
+                "output": "build/debug/debug_executable_gz",
+                "options": {
+                    "ncc_configuration": "debug"
+                }
+            }
+        ]
+    },
+    "execution_policies": [
+        {
+            "name": "main_policy",
+            "runner": "php",
+            "execute": {
+                "working_directory": "%CWD%",
+                "silent": false,
+                "tty": true,
+                "timeout": null,
+                "idle_timeout": null,
+                "target": "main"
+            }
+        }
+    ]
+}
