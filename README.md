@@ -1,4 +1,4 @@
-# Socialbox Telegram
+# SocialTelegram
 
 A Socialbox Client/Bridge for Telegram written in PHP with the ncc compiler
 

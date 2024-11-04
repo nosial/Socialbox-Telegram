@@ -10,7 +10,7 @@
         }
     },
     "assembly": {
-        "name": "SocialboxTelegram",
+        "name": "SocialTelegram",
         "package": "net.nosial.socialbox_telegram",
         "version": "1.0.0",
         "uuid": "11a18b48-111d-4414-8c28-4bffacd36a1d"
